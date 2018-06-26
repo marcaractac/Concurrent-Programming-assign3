@@ -3,7 +3,7 @@ package assign3;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Table {
+public class Table implements Runnable{
 
     public Table (String name){
         Lock forks[] = new ReentrantLock[5];
@@ -23,5 +23,10 @@ public class Table {
         p3.start();
         p4.start();
         p5.start();
+    }
+
+    @Override
+    public void run() {
+        while(true){}
     }
 }

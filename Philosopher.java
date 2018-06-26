@@ -33,7 +33,7 @@ public class Philosopher implements Runnable {
         System.out.println(name + " began eating");
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(3);
         } catch (InterruptedException e) {
             System.out.println("BROKEN!!");
         } 
@@ -48,7 +48,7 @@ public class Philosopher implements Runnable {
         System.out.println(name + " is thinking");
 
         try {
-            Thread.sleep(100);
+            Thread.sleep(1);
         } catch (InterruptedException e) {
             System.out.println("BROKEN!!");
         } 
