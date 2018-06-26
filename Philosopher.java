@@ -35,7 +35,7 @@ public class Philosopher implements Runnable {
         try {
             Thread.sleep(3);
         } catch (InterruptedException e) {
-            System.out.println("BROKEN!!");
+            e.printStackTrace();
         } 
         finally{
             leftFork.unlock();
@@ -50,7 +50,7 @@ public class Philosopher implements Runnable {
         try {
             Thread.sleep(1);
         } catch (InterruptedException e) {
-            System.out.println("BROKEN!!");
+            e.printStackTrace();
         } 
     }
 }
