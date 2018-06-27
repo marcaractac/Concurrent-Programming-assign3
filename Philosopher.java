@@ -5,11 +5,11 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Philosopher implements Runnable {
 
-    Lock leftFork = new ReentrantLock();
-    Lock rightFork = new ReentrantLock();
+    ReentrantLock leftFork = new ReentrantLock();
+    ReentrantLock rightFork = new ReentrantLock();
     String name; 
 
-    public Philosopher(Lock leftFork, Lock rightFork, String name) {
+    public Philosopher(ReentrantLock leftFork, ReentrantLock rightFork, String name) {
         this.leftFork = leftFork;
         this.rightFork = rightFork;
         this.name = name; 
@@ -23,7 +23,7 @@ public class Philosopher implements Runnable {
         }
     }
 
-    private void eat(Lock leftFork, Lock rightFork, String name){
+    private void eat(ReentrantLock leftFork, ReentrantLock rightFork, String name){
         leftFork.lock();
         System.out.println(name + " picked up left fork");
 
@@ -52,5 +52,13 @@ public class Philosopher implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } 
+    }
+
+    public boolean forkCheck(){
+        if(leftFork.isHeldByCurrentThread()){
+             return true;
+        }else{
+            return false;
+        }
     }
 }
