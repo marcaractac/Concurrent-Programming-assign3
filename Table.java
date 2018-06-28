@@ -36,6 +36,15 @@ public class Table implements Runnable{
         p3.start();
         p4.start();
         p5.start();
+
+        if(Aristotle.forkCheck() && Socrates.forkCheck() && Plato.forkCheck() && Pythagoras.forkCheck() && Confucius.forkCheck()){
+            exit = true;
+            p1.stop();
+            p2.stop();
+            p3.stop();
+            p4.stop();
+            p5.stop();
+        }    
     }
 
     @Override
@@ -43,7 +52,6 @@ public class Table implements Runnable{
         while(!exit){    
             if(Aristotle.forkCheck() && Socrates.forkCheck() && Plato.forkCheck() && Pythagoras.forkCheck() && Confucius.forkCheck()){
                 exit = true;
-                System.out.println("Table has deadlocked!!");
             }       
         }
     }
